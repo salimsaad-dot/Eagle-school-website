@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Top bar */
+.top-bar {
+            background: #002050;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            font-size: 14px;
+        }
+
+        .top-bar .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar .social-icons a {
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Main header */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 10px 20px;
+            border-bottom: 2px solid #002050;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .main-header .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .main-header h1 {
+            font-size: 24px;
+            color: #004080;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            width: 50%;
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            color: #004080;
+        }
+
+        .contact-item span {
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Navigation bar */
+        .nav-bar {
+            background: #002050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #ffcc00;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #004080;
+                text-align: center;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+/* Hero Section */
+.hero {
+  background:  url('images/Spider-Man\ in\ the\ Rain\ wallpaper.jpg') ;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.cta-button {
+  background: #e74c3c;
+  color: #fff;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section:nth-child(even) {
+  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+}
+
+h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2c3e50;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons */
+.fas {
+  margin-right: 10px;
+  color: #2c3e50;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+/* FAQs */
+#faq p {
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#faq strong {
+  color: #2c3e50;
+}
+
+/* Contact Form */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background: #2c3e50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #1a252f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 40px 10px;
+  }
+}
+
+/* apply Styles */
+.apply {
+    text-align: center;
+    padding: 20px;
+    background: #002050;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .apply-button {
+    background: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .apply-button:hover {
+    background: #c0392b;
+  }
+
+
+/* Footer Section */
+footer {
+    background-color: #002050;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-container div {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-container h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 5px 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-social a img {
+    width: 30px;
+    margin: 5px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+/* Footer Animation */
+.footer-container div {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.footer-container div.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+<body>
+     <!-- Top Bar -->
+     <div class="top-bar">
+        <p>Join with us and be a part of the success</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="images/LOGO.jpg" alt="School Logo">
+            <h1>Eagle Vision</h1>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 School St, City, Country</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+01 (213) 471-7207</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>support@school.com</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <button class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="events.html">Recent Events</a></li>
+            <li><a href="teachers.html">Our Team</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+<script>
+    function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+}
+</script>
+    
+  
+    
+         <!-- Hero Section -->
+  <div class="hero">
+    <h1 data-aos="fade-down">Start Your Journey with Us</h1>
+    <p data-aos="fade-up">Apply Now for the 2024 Academic Year</p>
+    <a href="#process" class="cta-button" data-aos="fade-up">Apply Now</a>
+  </div>
+
+   <!-- Introduction Section -->
+   <section id="introduction" data-aos="fade-up">
+    <h2>Welcome to Eagle Vision Basic School</h2>
+    <p>At Eagle Vision, we believe in nurturing young minds to achieve their full potential. Explore our admission process and become part of our family.</p>
+  </section>
+
+   <!-- Admission Process Section -->
+   <section id="process" data-aos="fade-up">
+    <h2>Admission Process</h2>
+    <div class="card">
+      <ol>
+        <li><i class="fas fa-file-alt"></i> Submit the application form.</li>
+        <li><i class="fas fa-user-graduate"></i> Attend an interview or entrance exam.</li>
+        <li><i class="fas fa-envelope"></i> Receive an admission decision.</li>
+        <li><i class="fas fa-check-circle"></i> Complete enrollment.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Requirements Section -->
+  <section id="requirements" data-aos="fade-up">
+    <h2>Requirements</h2>
+    <div class="card">
+      <ul>
+        <li><i class="fas fa-id-card"></i> Birth Certificate</li>
+        <li><i class="fas fa-file-alt"></i> Academic Transcripts</li>
+        <li><i class="fas fa-camera"></i> ID Photos</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Fee Structure Section -->
+  <section id="fees" data-aos="fade-up">
+    <h2>Fee Structure</h2>
+    <div class="card">
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>Tuition Fee</td>
+          <td>$X,XXX</td>
+        </tr>
+        <tr>
+          <td>Registration Fee</td>
+          <td>$XXX</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section id="faq" data-aos="fade-up">
+    <h2>FAQs</h2>
+    <div class="card">
+      <p><strong>Q: What is the application deadline?</strong><br>A: The deadline is [date].</p>
+      <p><strong>Q: Is there an entrance exam?</strong><br>A: Yes, for certain grades.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <div class="card">
+      <p>Email: admissions@schoolname.com<br>Phone: +123 456 7890</p>
+      <form action="submit_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+   <!-- Scripts -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+   <script>
+     AOS.init();
+   </script>
+
+<div class="apply">
+    <a href="apply.html" class="apply-button">Apply Now</a>
+</div>
+
+  
+  <!-- footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>We are committed to providing quality education that empowers students for the future.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: salimsaad135@gmail.com</p>
+                <p>Phone: 0555661827</p>
+                <p>Address: 123 School Lane, City, Country</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 Eagle Vision. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const footerSections = document.querySelectorAll(".footer-container div");
+    
+        function revealFooter() {
+            const footer = document.querySelector("footer");
+            const footerPosition = footer.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight - 50;
+    
+            if (footerPosition < screenPosition) {
+                footerSections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.classList.add("show");
+                    }, index * 200); // Adds delay for a smooth effect
+                });
+            }
+        }
+    
+        window.addEventListener("scroll", revealFooter);
+        revealFooter(); // Run once in case footer is already in view
+    });
+    
+    </script>
+</body>
+</html>

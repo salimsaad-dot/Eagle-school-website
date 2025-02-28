@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Top bar */
+.top-bar {
+            background: #002050;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            font-size: 14px;
+        }
+
+        .top-bar .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar .social-icons a {
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Main header */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 10px 20px;
+            border-bottom: 2px solid #002050;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .main-header .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .main-header h1 {
+            font-size: 24px;
+            color: #004080;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            width: 50%;
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            color: #004080;
+        }
+
+        .contact-item span {
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Navigation bar */
+        .nav-bar {
+            background: #002050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #ffcc00;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #004080;
+                text-align: center;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+/* events Section */
+.events {
+  background:  url('images/Spider-Man\ in\ the\ Rain\ wallpaper.jpg') ;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.events h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.events p {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+
+/* Events Section */
+#events {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#events h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-card h3 {
+  font-size: 1.5rem;
+  margin: 15px;
+  color: #2c3e50;
+}
+
+.event-card .date {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0 15px;
+}
+
+.event-card .description {
+  font-size: 1rem;
+  margin: 15px;
+  color: #555;
+}
+
+.event-card .read-more {
+  display: inline-block;
+  margin: 15px;
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.event-card .read-more:hover {
+  color: #c0392b;
+}
+
+/* Call-to-Action Section */
+#cta {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+}
+
+#cta p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background: #e74c3c;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+    background-color: #002050;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-container div {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-container h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 5px 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-social a img {
+    width: 30px;
+    margin: 5px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+/* Footer Animation */
+.footer-container div {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.footer-container div.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+<body>
+     <!-- Top Bar -->
+     <div class="top-bar">
+        <p>Join with us and be a part of the success</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="images/LOGO.jpg" alt="School Logo">
+            <h1>Eagle Vision</h1>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 School St, City, Country</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+01 (213) 471-7207</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>support@school.com</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <button class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="#">Recent Events</a></li>
+            <li><a href="teachers.html">Our Team</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+<script>
+    function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+}
+</script>
+    
+  
+    <!-- Header Section -->
+  <div class="events">
+    <h1>Recent Events</h1>
+    <p>Celebrating Our Achievements and Memorable Moments</p>
+  </div>
+
+   <!-- Events Section -->
+   <section id="events">
+    <h2>What's Happening at Eagle Vision Basic School</h2>
+    <div class="event-grid">
+      <!-- Event Card 1 -->
+      <div class="event-card">
+        <img src="images/Spider-Man in the Rain wallpaper.jpg" alt="Annual Sports Day">
+        <h3>Annual Sports Day</h3>
+        <p class="date">October 15, 2023</p>
+        <p class="description">A day filled with fun, competition, and teamwork as students participated in various sports activities.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="event-card">
+        <img src="images/Spider-Man in the Rain wallpaper.jpg" alt="Science Fair">
+        <h3>Science Fair</h3>
+        <p class="date">November 5, 2023</p>
+        <p class="description">Students showcased their innovative projects and experiments at the annual Science Fair.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="event-card">
+        <img src="images/Spider-Man in the Rain wallpaper.jpg" alt="Cultural Fest">
+        <h3>Cultural Fest</h3>
+        <p class="date">December 10, 2023</p>
+        <p class="description">A vibrant celebration of diversity with performances, food, and cultural displays.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section id="cta">
+    <p>Want to stay updated on all our events?</p>
+    <a href="#contact" class="cta-button">Contact Us</a>
+  </section>
+
+
+  
+  <!-- footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>We are committed to providing quality education that empowers students for the future.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: salimsaad135@gmail.com</p>
+                <p>Phone: 0555661827</p>
+                <p>Address: 123 School Lane, City, Country</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 Eagle Vision. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const footerSections = document.querySelectorAll(".footer-container div");
+    
+        function revealFooter() {
+            const footer = document.querySelector("footer");
+            const footerPosition = footer.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight - 50;
+    
+            if (footerPosition < screenPosition) {
+                footerSections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.classList.add("show");
+                    }, index * 200); // Adds delay for a smooth effect
+                });
+            }
+        }
+    
+        window.addEventListener("scroll", revealFooter);
+        revealFooter(); // Run once in case footer is already in view
+    });
+    
+    </script>
+</body>
+</html>
