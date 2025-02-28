@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script defer src="script.js"></script>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Top bar */
+.top-bar {
+            background: #002050;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            font-size: 14px;
+        }
+
+        .top-bar .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar .social-icons a {
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Main header */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 10px 20px;
+            border-bottom: 2px solid #002050;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .main-header .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .main-header h1 {
+            font-size: 24px;
+            color: #004080;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            width: 50%;
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            color: #004080;
+        }
+
+        .contact-item span {
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Navigation bar */
+        .nav-bar {
+            background: #002050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #ffcc00;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #004080;
+                text-align: center;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; /* Adds consistent spacing between cards */
+    justify-content: center;
+    padding: 20px; /* Adds padding around the wrapper */
+    margin: 0 auto; /* Centers the wrapper */
+    max-width: 1200px; /* Limits the maximum width for better responsiveness */
+    margin-bottom: 40px;
+}
+
+.card {
+    width: 300px;
+    height: 350px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+                -5px -5px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    position: relative;
+    margin: 10px; /* Adds margin around each card */
+}
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .front-page, .back-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+        }
+
+        .front-page {
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .card-subtitle {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            color: #0fbcf9;
+        }
+
+        .back-page {
+            background-color: #1e272e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotateY(180deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            text-align: center;
+            padding: 20px;
+            max-width: 280px;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-button {
+            background-color: #0fbcf9;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: transparent;
+            color: #0fbcf9;
+            border: 1px solid #0fbcf9;
+        }
+
+        @media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 300px; /* Limits the maximum width */
+        margin: 10px auto; /* Centers the cards */
+    }
+}
+
+
+
+/* Footer Section */
+footer {
+    background-color: #002050;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-container div {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-container h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 5px 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-social a img {
+    width: 30px;
+    margin: 5px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+/* Footer Animation */
+.footer-container div {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.footer-container div.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+<body>
+     <!-- Top Bar -->
+     <div class="top-bar">
+        <p>Join with us and be a part of the success</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="images/LOGO.jpg" alt="School Logo">
+            <h1>Eagle Vision</h1>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 School St, City, Country</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+01 (213) 471-7207</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>support@school.com</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <button class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about2.html">About Us</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="events.html">Recent Events</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+<script>
+    function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+}
+</script>
+
+<div class="wrapper">
+    <!-- Reusable Card Component -->
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/moi.jpg');">
+            <div>
+                <h2 class="card-title">Salim Saad</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Salim Saad</h3>
+                <p class="card-description">
+                    Salim Saad is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Cards -->
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/lina.jpg');">
+            <div>
+                <h2 class="card-title">Appiah Franklina</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Appiah Franklina</h3>
+                <p class="card-description">Appiah Franklina is a top model and U.S gold medalist in Decathlon.</p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/rose.jpg');">
+            <div>
+                <h2 class="card-title">Tindi Rose</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Tindi Rose</h3>
+                <p class="card-description">Tindi Rose is a top model and U.S gold medalist in Decathlon.</p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/doris.jpg');">
+            <div>
+                <h2 class="card-title">Boakye Doris</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Boakye Doris</h3>
+                <p class="card-description">
+                    Boakye Doris is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/mavis.jpg');">
+            <div>
+                <h2 class="card-title">Madame Mavis</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Madame Mavis</h3>
+                <p class="card-description">
+                    Madame Mavis is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/sarah.jpg');">
+            <div>
+                <h2 class="card-title">Madame Mavis</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Madame Mavis</h3>
+                <p class="card-description">
+                    Madame Mavis is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div> <div class="card">
+        <div class="front-page" style="background-image: url('images/monsieur.jpg');">
+            <div>
+                <h2 class="card-title">Madame Mavis</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Madame Mavis</h3>
+                <p class="card-description">
+                    Madame Mavis is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div> <div class="card">
+        <div class="front-page" style="background-image: url('images/moi.jpg');">
+            <div>
+                <h2 class="card-title">Madame Mavis</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Madame Mavis</h3>
+                <p class="card-description">
+                    Madame Mavis is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="front-page" style="background-image: url('images/moi.jpg');">
+            <div>
+                <h2 class="card-title">Senyo Bernard</h2>
+                <p class="card-subtitle">100M followers on Instagram</p>
+            </div>
+        </div>
+        <div class="back-page">
+            <div class="card-content">
+                <h3>Senyo Bernard</h3>
+                <p class="card-description">
+                    Senyo Bernard is a top model and U.S gold medalist in Decathlon.
+                    She made her first appearance on the Sherri’s Hill spring ramp walk.
+                </p>
+                <button class="card-button" type="button">Explore More</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll(".card");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    });
+</script>
+    
+  
+    
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>We are committed to providing quality education that empowers students for the future.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: salimsaad135@gmail.com</p>
+                <p>Phone: 0555661827</p>
+                <p>Address: 123 School Lane, City, Country</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="images/whatsapp.jpeg" alt="whatsapp"></a>
+                <a href="#"><img src="images/x.jpeg" alt="Twitter"></a>
+                <a href="#"><img src="images/insta.jpeg" alt="Instagram"></a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 Eagle Vision. All rights reserved.</p>
+    </footer>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const footerSections = document.querySelectorAll(".footer-container div");
+
+    function revealFooter() {
+        const footer = document.querySelector("footer");
+        const footerPosition = footer.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight - 50;
+
+        if (footerPosition < screenPosition) {
+            footerSections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add("show");
+                }, index * 200); // Adds delay for a smooth effect
+            });
+        }
+    }
+
+    window.addEventListener("scroll", revealFooter);
+    revealFooter(); // Run once in case footer is already in view
+});
+   </script>
+</body>
+</html>
